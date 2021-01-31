@@ -1,14 +1,16 @@
 
 import './App.css';
-import NavTabs from './components/header.js';
-import ClassNames from './components/footer.js';
+import DenseAppBar from './components/header.js';
+import BottomAppBar from './components/footer.js';
+import AutoGrid from './components/Items.js'
 
 function App() {
   return (
     <div className="App">
-    <NavTabs/>
-    <ClassNames/>
-      </div>
+      <DenseAppBar />
+      <BottomAppBar />
+      <AutoGrid />
+    </div>
   );
 }
 

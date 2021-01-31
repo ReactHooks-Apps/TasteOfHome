@@ -1,36 +1,36 @@
 import React from 'react';
-import PropTypes from 'prop-types';
-import clsx from 'clsx';
-import Button from '@material-ui/core/Button';
-import { withStyles } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
+import AppBar from '@material-ui/core/AppBar';
+import Typography from '@material-ui/core/Typography';
 
-// We can inject some CSS into the DOM.
-const styles = {
-  root: {
-    background: 'linear-gradient(45deg, #FE6B8B 30%, #FF8E53 90%)',
-    borderRadius: 3,
-    border: 0,
-    color: 'white',
-    height: 48,
-    padding: '0 30px',
-    boxShadow: '0 3px 5px 2px rgba(255, 105, 135, .3)',
+
+
+const useStyles = makeStyles((theme) => ({
+  text: {
+    padding: theme.spacing(2, 2, 0),
+    fontFamily: 'Raleway',
+    fontWeight: 700,
+    fontSize: 32,
+    fontStyle: 'italic',
+    color: 'Black',
   },
-};
+  appBar: {
+    top: 'auto',
+    bottom: 0,
+    background: '#ff9800'
+  },
 
-function ClassNames(props) {
-  const { classes, children, className, ...other } = props;
+}));
+
+export default function BottomAppBar() {
+  const classes = useStyles();
 
   return (
-    <Button className={clsx(classes.root, className)} {...other}>
-      {children || 'class names'}
-    </Button>
-  );
+    <AppBar position="fixed" className={classes.appBar}>
+      <Typography className={classes.text} variant="h3" >
+        About us
+        </Typography>
+    </AppBar>
+
+  )
 }
-
-ClassNames.propTypes = {
-  children: PropTypes.node,
-  classes: PropTypes.object.isRequired,
-  className: PropTypes.string,
-};
-
-export default withStyles(styles)(ClassNames);
